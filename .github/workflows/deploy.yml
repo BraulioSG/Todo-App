@@ -1,0 +1,20 @@
+name: run
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    tests:
+        runs-on: ubuntu-18.04
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - name: Node-setup
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "20"
+            - name: Install dependencies
+              run: npm install
